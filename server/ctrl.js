@@ -1,3 +1,6 @@
+const posts = require("./db.json")
+let globalID = 2
+
 module.exports = {
     getCompliment: (req, res) => {
         const compliments = 
@@ -26,5 +29,26 @@ module.exports = {
         let randomFortune = fortunes[randomIndex]
 
         res.status(200).send(randomFortune)
+    },
+    getAllPosts: (req, res) => {
+        res.status(200).send(posts)
+    },
+    
+    
+    
+    
+    
+    createPost: (req, res) => {
+        let {feelingScale, goalsForToday, imageURL} = req.body
+        let newPost = {
+            feelingScale, 
+            goalsForToday, 
+            imageURL,
+            id: globalID
+        }
+        console.log(posts)
+        posts.push(newPost)
+        res.status(200).send(posts)
+        globalID++
     }
 }

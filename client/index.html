@@ -2,12 +2,35 @@
 <html>
   <head>
     <title>Back End Assessment</title>
+    <link rel="stylesheet" href="styes.css">
   </head>
   <body class="container">
     
     <button id="complimentButton">Get a compliment</button>
 
     <button id="fortuneButton">Get a fortune</button>
+
+
+    <div id="mainDiv">
+    <form>
+      <input 
+          type="text"
+          id="feelingScale"
+          placeholder="How are you feeling today?"/>
+      <input 
+          type="text"
+          id="goalsForToday"
+          placeholder="Describe your goals for the day"/>
+      <input 
+          type="text"
+          id="imageURL"
+          placeholder="Today's image! - URL"/>
+      <button>Post</button>
+    </form>
+
+    <section id="posts-container"></section>
+
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>

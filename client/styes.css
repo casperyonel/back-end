@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+
+#mainDiv {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0px;
+}
+
+form {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: darkslategray;
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly; 
+    align-items: center;
+    margin: 30px;
+  }
+
+
+#posts-container {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    margin: 0px 0px;
+    padding: 0px;
+}
+
+.post-card {
+    background-color: lightgray;
+}
