@@ -33,22 +33,39 @@ module.exports = {
     getAllPosts: (req, res) => {
         res.status(200).send(posts)
     },
-    
-    
-    
-    
-    
     createPost: (req, res) => {
-        let {feelingScale, goalsForToday, imageURL} = req.body
+        let {title, goalsForToday, imageURL, likes} = req.body
         let newPost = {
-            feelingScale, 
+            title, 
             goalsForToday, 
             imageURL,
+            likes,
             id: globalID
         }
         console.log(posts)
         posts.push(newPost)
         res.status(200).send(posts)
         globalID++
+    }, 
+    deletePost: (req, res) => {
+        let {id} = req.params
+        let index = posts.findIndex(elem => +elem.id === +id)
+        posts.splice(index, 1)
+        res.status(200).send(posts)
+    },
+    updatePost: (req, res) => {
+        let {id} = req.params
+        let {type} = req.body
+        
+        let index = posts.findIndex(elem => +elem.id === +id)
+        if (posts[index].likes === 0 && type === 'Dislike') {
+            res.status(400).send("Cannot go below zero likes")
+        } else if (posts[index].likes > 0 && type === 'Dislike') {
+            posts[index].likes -= 1
+            res.status(200).send(posts)
+        } else if (posts[index].likes > 0 && type === 'Like') {
+            posts[index].likes += 1
+            res.status(200).send(posts)
+        }
     }
 }

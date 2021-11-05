@@ -4,37 +4,64 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-
-
-#mainDiv {
+.container {
     position: relative;
-    width: 350px;
-    height: 350px;
-    margin: 0px;
+    background-color: rgb(255, 227, 190);
+
+}
+
+#topSection {
+    position: relative;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px;
 }
 
 form {
     position: absolute;
-    width: 350px;
-    height: 350px;
-    background-color: darkslategray;
+    width: 850px;
+    height: 400px;
+    background-color: rgb(210, 144, 212);
     position: relative;
     display: flex; 
     flex-direction: column;
     justify-content: space-evenly; 
     align-items: center;
     margin: 30px;
+    box-shadow: 10px 5px 15px grey;
   }
 
-
 #posts-container {
-    position: absolute;
-    width: 50vw;
+    position: relative;
+    width: 30vw;
     height: 50vh;
     margin: 0px 0px;
     padding: 0px;
 }
 
 .post-card {
-    background-color: lightgray;
+    border-radius: 2%;
+    padding: 10px;
+    margin: 25px 5px;
+    border-color: purple;
+    border-width: 2px;
+    border-style: dotted;
+}
+
+img {
+    height: 350px;
+}
+
+h4 {
+    color: purple;
+    margin: 10px 0px;
+}
+
+.btns-container {
+    margin: 5px 0px;
+}
+
+#id2 {
+    margin: 10px 0px;
 }

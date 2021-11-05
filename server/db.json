@@ -1,8 +1,9 @@
 [
     {
         "id": 1,
-        "feelingScale": 4,
-        "goalsForToday": "My goal for today is to win the day!",
-        "imageURL": "2"
+        "title": "My mindful day!",
+        "goalsForToday": "My main goal for today is to be mindful as much as possible. I'd like to only be doing one thing at a time too, so if I'm walking, I'm just walking, if I'm eating, I'm just eating, instead of multi-tasking.",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Kodo_Sawaki_Zazen.jpg",
+        "likes": 4
     }
 ]

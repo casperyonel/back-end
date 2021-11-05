@@ -17,53 +17,54 @@ document.getElementById('fortuneButton').onclick = function () {
     })
 }
 
-
-
-
 const postsCallback = ({ data: posts }) => displayPosts(posts)
 const errCallback = err => console.log(err)
 
 const getAllPosts = () => axios.get("http://localhost:4000/api/getAllPosts/").then(postsCallback).catch(errCallback)
 const createPost = body => axios.post("http://localhost:4000/api/createPost/", body).then(postsCallback).catch(errCallback)
+const deletePost = id => axios.delete(`http://localhost:4000/api/deletePost/${id}`).then(postsCallback).catch(errCallback)
+const updatePost = (id, type) => axios.put(`http://localhost:4000/api/updatePost/${id}`, {type}).then(postsCallback).catch(errCallback)
 
 function submitHandler(e) {
     e.preventDefault()
 
-    let feelingScale = document.getElementById('feelingScale')
+    let title = document.getElementById('title')
     let goalsForToday = document.getElementById('goalsForToday')
     let imageURL = document.getElementById('imageURL')
-
-    console.log(feelingScale)
+    let likes = document.getElementById('likes')
 
     let newPost = {
-        feelingScale: feelingScale.value,
+        title: title.value,
         goalsForToday: goalsForToday.value,
         imageURL: imageURL.value,
+        likes: +likes.value,
     }
 
     createPost(newPost)
 
-    feelingScale.value = ''
+    title.value = ''
     goalsForToday.value = ''
     imageURL.value = ''
+    likes.value = ''
 }
 
 function createPostCard(post) {
     const postCard = document.createElement('div')
     postCard.classList.add('post-card')
 
-    postCard.innerHTML = `
-    <img alt='post cover image' src=${post.imageURL} class="post-cover-image"/>
-    <p class="feeling-scale>${post.feelingScale}</p>
-    <p class="goals-for-today>${post.goalsForToday}</p>
-    <button onclick="deletePost(f${post.id})">delete</button>
+    postCard.innerHTML = `<img alt='post cover image' src=${post.imageURL} class="post-cover-image"/>
+    <h4 class="title">${post.title}</h4>
+    <p class="goals-for-today">${post.goalsForToday}</p>
+    <button id="id2" onclick="deletePost(${post.id})">delete</button>
+    <div class="btns-container">
+        <button onclick="updatePost(${post.id}, 'Like')">Like</button>
+        <p class="post-likes">$${post.likes}</p>
+        <button onclick="updatePost(${post.id}, 'Dislike')">Dislike</button>
+    </div>
     `
 
     postsContainer.appendChild(postCard)
 }
-
-
-
 
 function displayPosts(arr) {
     postsContainer.innerHTML = ``
